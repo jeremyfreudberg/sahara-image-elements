@@ -478,7 +478,7 @@ if [ -z "$PLUGIN" -o "$PLUGIN" = "vanilla" ]; then
     export DIB_HDFS_LIB_DIR="/opt/hadoop/share/hadoop/tools/lib"
     export plugin_type="vanilla"
 
-    ubuntu_elements_sequence="hadoop oozie mysql hive $JAVA_ELEMENT swift_hadoop"
+    ubuntu_elements_sequence="hadoop oozie mysql hive $JAVA_ELEMENT swift_hadoop massopencloud"
     fedora_elements_sequence="hadoop oozie mysql disable-firewall hive $JAVA_ELEMENT swift_hadoop"
     centos_elements_sequence="hadoop oozie mysql disable-firewall hive $JAVA_ELEMENT swift_hadoop"
     centos7_elements_sequence="hadoop oozie mysql disable-firewall hive $JAVA_ELEMENT swift_hadoop"

@@ -1,3 +1,4 @@
+ubuntu_sahara_vanilla_hadoop_2_7_1_latest.d/
 *.py[co]
 *.egg
 *.egg-info

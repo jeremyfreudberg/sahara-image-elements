@@ -1,0 +1,58 @@
+#!/bin/bash
+
+if [ "${DIB_DEBUG_TRACE:-0}" -gt 0 ]; then
+    set -x
+fi
+set -eu
+set -o pipefail
+
+tmp_dir=/tmp/pig
+cd $tmp_dir
+
+PIG_DOWNLOAD_URL=http://mirror.reverse.net/pub/apache/pig/pig-0.16.0/pig-0.16.0.tar.gz
+
+PIG_FILE=$(basename $PIG_DOWNLOAD_URL)
+tar xzf $PIG_FILE
+PIG_DIR="${PIG_FILE%.*}"
+PIG_DIR="${PIG_DIR%.*}"
+mv $PIG_DIR /opt/pig
+rm -r $tmp_dir
+chmod -R a+rw /opt/pig
+
+chown -R hadoop:hadoop /opt/pig
+
+cat >> /etc/profile.d/pig_env.sh <<EOF
+PIG_HOME=/opt/pig
+PIG_CONF_DIR=\$PIG_HOME/conf
+PIG_CLASSPATH=\$PIG_CONF_DIR
+PATH=\$PATH:\$PIG_HOME/bin
+EOF
+
+cat >> /home/hadoop/.bashrc <<EOF
+source /etc/profile.d/pig_env.sh
+EOF
+
+cat >> /etc/profile.d/hadoop.sh <<EOF
+source /etc/profile.d/pig_env.sh
+EOF
+
+cat >> /home/hadoop/.bashrc <<EOF
+source /etc/profile.d/99-java.sh
+EOF
+
+cat >> /etc/profile.d/hive_env.sh <<EOF
+HIVE_HOME=/opt/hive
+PATH=\$PATH:\$HIVE_HOME/bin
+EOF
+
+cat >> /home/hadoop/.bashrc <<EOF
+source /etc/profile.d/hive_env.sh
+EOF
+
+cat >> /etc/profile.d/hadoop.sh <<EOF
+source /etc/profile.d/hive_env.sh
+EOF
+
+cat >> /home/hadoop/.bashrc <<EOF
+source /etc/profile.d/hadoop.sh
+EOF
