@@ -5,7 +5,8 @@ This is the massopencloud branch of sahara-image-elements project. Here is where
 
 * Installs Pig  
 * Sets all environment variables for Hadoop/Hive/Pig/Java in both "hadoop" and "ubuntu" users  
-* Allows YARN to handle Pig jobs submitted by Sahara -- by changing scheduler type to "Fair Scheduler" (**this feature coming soon**)  
+
+Note that to submit a Pig job in YARN (at least when done via Sahara EDP) you need to set `yarn.resourcemanager.scheduler.class` to `org.apache.hadoop.yarn.server.resourcemanager.scheduler.fair.FairScheduler`. This can be done by specifying in Sahara node-group template, or manually. 
 
 .. sourcecode:: bash
 
