@@ -1,12 +1,12 @@
 Sahara image elements project
 ==============================
 
-This repo is a place for Sahara-related for diskimage-builder elements.
+This is the massopencloud branch of sahara-image-elements project. Here is where it differs from upstream version:
 
-Script for creating Fedora and Ubuntu cloud images with our elements and default parameters. You should only need to run this command:
+* Installs Pig  
+* Sets all environment variables for Hadoop/Hive/Pig/Java in both "hadoop" and "ubuntu" users  
+* Allows YARN to handle Pig jobs submitted by Sahara -- by changing scheduler type to "Fair Scheduler" (**this feature coming soon**)  
 
 .. sourcecode:: bash
 
-    tox -e venv -- sahara-image-create
-
-Note: More information about script `diskimage-create <https://github.com/openstack/sahara-image-elements/blob/master/diskimage-create/README.rst>`_
+    tox -e venv -- sahara-image-create -p vanilla -i ubuntu
