@@ -25,7 +25,7 @@ cat >> /etc/profile.d/pig_env.sh <<EOF
 PIG_HOME=/opt/pig
 PIG_CONF_DIR=\$PIG_HOME/conf
 PIG_CLASSPATH=\$PIG_CONF_DIR
-PATH=\$PATH:\$PIG_HOME/bin
+PATH=\$PIG_HOME/bin:\$PATH
 EOF
 
 cat >> /home/hadoop/.bashrc <<EOF
