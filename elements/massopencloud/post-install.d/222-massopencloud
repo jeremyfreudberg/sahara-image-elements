@@ -56,3 +56,5 @@ EOF
 cat >> /home/hadoop/.bashrc <<EOF
 source /etc/profile.d/hadoop.sh
 EOF
+
+apt-get install midori
