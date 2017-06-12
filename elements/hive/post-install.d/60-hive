@@ -23,7 +23,3 @@ chmod -R a+rw /opt/hive
 
 ln -s /usr/share/java/mysql-connector-java.jar /opt/hive/lib/libmysql-java.jar
 chown -R hadoop:hadoop /opt/hive
-cat >> /home/hadoop/.bashrc <<EOF
-HIVE_HOME=/opt/hive
-PATH=\$PATH:\$HIVE_HOME/bin
-EOF

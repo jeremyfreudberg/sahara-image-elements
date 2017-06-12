@@ -477,7 +477,7 @@ if [ -z "$PLUGIN" -o "$PLUGIN" = "vanilla" ]; then
     export DIB_SPARK_VERSION=1.6.0
     export SPARK_HADOOP_DL=hadoop2.6
 
-    ubuntu_elements_sequence="hadoop oozie mysql hive $JAVA_ELEMENT swift_hadoop spark"
+    ubuntu_elements_sequence="hadoop oozie mysql hive $JAVA_ELEMENT swift_hadoop spark massopencloud"
     fedora_elements_sequence="hadoop oozie mysql disable-firewall hive $JAVA_ELEMENT swift_hadoop spark"
     centos_elements_sequence="hadoop oozie mysql disable-firewall hive $JAVA_ELEMENT swift_hadoop spark nc"
     centos7_elements_sequence="hadoop oozie mysql disable-firewall hive $JAVA_ELEMENT swift_hadoop spark nc"
